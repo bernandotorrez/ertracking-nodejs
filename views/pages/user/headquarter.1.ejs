@@ -1,0 +1,1236 @@
+<div class="main-content">
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="/home">Home</a>
+                </li>
+
+
+                <li class="active">Headquarter</li>
+            </ul><!-- /.breadcrumb -->
+
+            <div class="nav-search" id="nav-search">
+                <form class="form-search">
+                    <span class="input-icon">
+
+                    </span>
+                </form>
+            </div><!-- /.nav-search -->
+        </div>
+
+        <div class="page-content">
+
+
+            <div class="page-header">
+                <h1>
+                    Headquarter
+                    <small>
+                        <i class="ace-icon fa fa-angle-double-right"></i>
+                        ER - TRACKING
+                    </small>
+                </h1>
+            </div><!-- /.page-header -->
+            <div class="space-24"></div>
+
+
+            <!-- ============================== FORM ============== -->
+            <form method="POST" id="dialog_edit_profile" name="dialog_edit_profile">
+                <div class="col-md-11">
+                    <div class="row">
+                        <input type="hidden" name="txt_tipe" id="txt_tipe" class="form-control" style="width:220px;"
+                            value="<%= nik %>" readonly>
+                        <input type="hidden" name="txt_nameapp" id="txt_nameapp" value="<%= nik %>">
+                        <input type="hidden" id="tipe_er" name="tipe_er" value="" />
+                        <input type="hidden" id="location" name="location" value="HQ" />
+                        <input type="hidden" name="htxt_nameapp" id="htxt_nameapp">
+                        <input type="hidden" name="cost-control" id="cost-control" value="<%= departemen %>">
+                        <input type="hidden" id="full_url" value="<%= full_url %>">
+                        <!-- <input type="hidden" name="txt_noerinsert" id="txt_noerinsert" value=""/>
+                        <input type="hidden" name="txt_noprinsert" id="txt_noprinsert" value=""/>
+                        <input type="hidden" name="txt_inv" id="txt_inv" value=""/> -->
+                        <!-- ============================== KIRI ============== -->
+                        <div class="col-md-6">
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-7">
+                                        <label> Login Sebagai : </label>&nbsp;<label id="tips1" style="color:#0069d9;">
+                                            <%= nik %> -
+                                            <%= nama %>
+                                        </label>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="space-2"></div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-7">
+                                        <label> Status : </label>&nbsp;<label id="data" style="color:#4CAF50;">
+                                        </label><label id="nodata" style="color:#F44336;"> </label>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="space-24"></div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label>NO PR / ER / INV : </label>
+                                    </div>
+                                    <div class="col-md-3">
+
+                                        <input type="text" name="txt_noerpr" id="txt_noerpr" class="form-control"
+                                            autofocus onkeyup="CheckKey(event)" data-placement="bottom"
+                                            data-original-title="Input NO ER / PR" title="Input No ER / PR"
+                                            style="border-left: 2px solid #428BCA!important;" autocomplete="off">
+
+                                    </div>
+                                    <div class="col-md-3">
+
+                                        <select name="tipe_ws" id="tipe_ws" class="form-control">
+                                            <option value="-"> Pilih Tipe ER </option>
+                                            <option value="MP"> Multi Paid </option>
+                                            <option value="MB"> Multi Branch </option>
+                                            <option value="BTACT"> BT Actual </option>
+                                            <option value="BTADV"> BT Advance </option>
+                                            <option value="ER"> ER Single </option>
+                                        </select>
+
+                                        <!-- <select name="tipe_ws" id="tipe_ws" class="form-control">
+                                            <option value="-"> Pilih Tipe ER </option>
+                                            <option value="MP"> Multi Paid </option>
+                                            <option value="MB"> Multi Branch </option>
+                                            <option value="BT"> Business Trip </option>
+                                            <option value="ER"> ER Single </option>
+                                        </select> -->
+
+                                    </div>
+
+                                    <div class="col-md-2">
+
+
+                                        <button type="button" class="btn btn-primary btn-sm"
+                                            id="btn-search">Search</button>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="space-24"></div>
+                            <!--   Script utk hidden er biasa  -->
+                            <div id="erbiasa">
+
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-5">
+                                            <label>NO PR : </label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <input class="form-control" type="text" name="txt_nopr" id="txt_nopr"
+                                                title="NO PR" data-placement="bottom" data-original-title="NO PR">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="space-2"></div>
+                                <div class="row">
+
+                                    <div class="col-md-5">
+                                        <label>NO ER : </label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input class="form-control" type="text" name="txt_noer" id="txt_noer"
+                                            title="NO ER" data-placement="bottom" data-original-title="NO ER">
+                                    </div>
+
+                                </div>
+                                <div class="space-2"></div>
+                                <div class="row">
+
+                                    <div class="col-md-5">
+                                        <label>NO INVOICE : </label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input class="form-control" type="text" name="txt_inv" id="txt_inv"
+                                            title="INVOICE" data-placement="bottom" data-original-title="INVOICE">
+                                    </div>
+
+                                </div>
+                                <div class="space-2"></div>
+                                <div class="row">
+
+                                    <div class="col-md-5">
+                                        <label>ER DATE : </label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input class="form-control" data-date-format="yyyy-mm-dd" type="text"
+                                            name="txt_erdate" id="txt_erdate" title="ER DATE" data-placement="bottom"
+                                            data-original-title="ER DATE">
+                                    </div>
+
+                                </div>
+                                <div class="space-2"></div>
+                                <div class="row">
+
+                                    <div class="col-md-5">
+                                        <label>PR APPROVED DATE : </label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input class="form-control" data-date-format="yyyy-mm-dd" type="text"
+                                            title="PR APPROVED DATE" data-placement="bottom"
+                                            data-original-title="PR APPROVED DATE" name="txt_appdate" id="txt_appdate">
+                                    </div>
+
+                                </div>
+                                <div class="space-2"></div>
+                                <div class="row" id='hidden2'>
+
+                                    <div class="col-md-5">
+                                        <label>PAY GROUP : </label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input class="form-control" type="text" name="txt_paygroup" id="txt_paygroup"
+                                            title="PAY GROUP" data-placement="bottom" data-original-title="PAY GROUP">
+                                    </div>
+
+                                </div>
+
+                                <% if(departemen == 'COST CONTROL') { %>
+                                <div class="space-2"></div>
+                                <div class="row">
+
+                                    <div class="col-md-5">
+                                        <label>AMOUNT : </label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="input-group">
+
+                                            <span class="input-group-addon" id="basic-addon1">IDR</span>
+                                            <input type="text" class="form-control" aria-label="Username"
+                                                aria-describedby="basic-addon1" name="txt_amount" id="txt_amount"
+                                                title="AMOUNT" data-placement="bottom" data-original-title="AMOUNT">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="space-2"></div>
+                                <div class="row">
+
+                                    <div class="col-md-5">
+                                        <label>TAX : </label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="input-group">
+
+                                            <span class="input-group-addon" id="basic-addon1">IDR</span>
+                                            <input type="text" class="form-control" aria-label="TAX"
+                                                aria-describedby="basic-addon1" name="txt_tax" id="txt_tax" title="TAX"
+                                                data-placement="bottom" data-original-title="TAX" disabled="">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- Note -->
+                                <div class="space-2"></div>
+                                <div class="row" id='hidden2'>
+                                    <div id="hidden_note">
+                                        <div class="col-md-5">
+                                            <label>NOTE : </label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <input class="form-control" type="text" name="txt_note" id="txt_note"
+                                                title="Note" data-placement="bottom" data-original-title="Note"
+                                                disabled="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Note -->
+
+
+                                <div class="space-2"></div>
+                                <div class="row">
+
+                                    <div class="col-md-5">
+                                        <label>NAMA KEGIATAN / BARANG : </label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <textarea class="form-control" type="text" title="NAMA KEGIATAN"
+                                            data-placement="bottom" data-original-title="NAMA KEGIATAN" rows="4"
+                                            name="txt_kegiatan" id="txt_kegiatan"></textarea>
+                                    </div>
+
+                                </div>
+                                <% } %>
+
+                                <div class="space-24"></div>
+                                <div class="row">
+
+                                    <div class="col-md-5">
+                                        <label>VALIDASI : </label>
+                                    </div>
+                                    <div class="col-md-7">
+
+                                        <label id="pesan"></label>
+
+                                    </div>
+
+                                </div>
+                                <div class="space-24"></div>
+
+                                <div class="row" id="hidden_note1">
+                                    <div class="space-16"></div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-md-5">
+                                        <label>CHECKER : </label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <select class="form-control" data-placeholder="Checker" name="txt_checker"
+                                            id="txt_checker">
+                                            <option value="">- Checker -</option>
+                                            <% data_master_checker.forEach(function(value) { %>
+                                            <option value="<%= value.id_checker %>">
+                                                <%= value.nama_checker %>
+                                            </option>
+                                            <% }) %>
+                                        </select>
+
+                                    </div>
+
+                                </div>
+                                <div class="space-2"></div>
+                                <div class="row">
+
+                                    <div class="col-md-5">
+                                        <label>VALIDATOR 1 : </label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input class="form-control" type="text" name="txt_validator1"
+                                            id="txt_validator1" title="VALIDATOR 1" data-placement="bottom"
+                                            data-original-title="VALIDATOR 1" readonly="">
+
+                                        <!-- <select class="form-control" data-placeholder="Validator 1" name="txt_validator1"
+                                            id="txt_validator1">
+                                            <option value="">- Validator 1 -</option>
+                                            <% data_validator.forEach(function(value) { %>
+                                            <option value="<%= value.id_validator %>">
+                                                <%= value.nama_validator %>
+                                            </option>
+                                            <% }) %>
+                                        </select> -->
+                                    </div>
+
+                                </div>
+
+                                <div class="space-2"></div>
+                                <div class="row">
+
+                                    <div class="col-md-5">
+                                        <label>PERIODE : </label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input class="form-control date-picker" data-date-format="yyyy-mm-dd"
+                                            type="text" name="txt_periode" id="txt_periode" title="PERIODE"
+                                            data-placement="bottom" data-original-title="PERIODE" autocomplete="off">
+                                    </div>
+
+                                </div>
+
+                                <div class="space-2"></div>
+                                <div class="row">
+
+                                    <div class="col-md-5">
+                                        <label>TGL PROSES CHECKER : </label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input class="form-control date-picker" data-date-format="yyyy-mm-dd"
+                                            type="text" name="txt_tpc" id="txt_tpc" title="TANGGAL PROSES CHECKER"
+                                            data-placement="bottom" data-original-title="TANGGAL PROSES CHECKER"
+                                            autocomplete="off">
+                                    </div>
+
+                                </div>
+
+                                <div class="space-2"></div>
+                                <div class="row">
+
+                                    <div class="col-md-5">
+                                        <label>STATUS : </label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <select name="txt_status" id="txt_status" class="">
+                                            <option value=''>Status</option>
+                                            <option value='Validate'> Validate</option>
+                                            <option value='Pending'> Pending</option>
+                                            <option value='Cancel'> Cancel</option>
+
+
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                                <div class="space-2"></div>
+                                <div class="row">
+
+                                    <div class="col-md-5">
+                                        <label>DEPARTMENT : </label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <select name="txt_dep" id="txt_dep" class="form-control">
+                                            <option value=''>- DEPARTMENT -</option>
+                                            <% data_departemen.forEach(function(value) { %>
+                                            <option value="<%= value.id_departemen %>">
+                                                <%= value.Title %>
+                                            </option>
+                                            <% }) %>
+
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                                <!-- ER / BT dan Lampiran -->
+                                <div id="show_lampiran_dibayarkan">
+                                    <div class="space-2"></div>
+
+                                    <div class="row">
+
+                                        <div class="col-md-5">
+                                            <label>ER / BT : </label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <select name="txt_er_bt" id="txt_er_bt" class="form-control">
+                                                <option value='-'>- ER / BT -</option>
+                                                <option value='1'>Dibayarkan</option>
+                                                <option value='2'>Tidak Dibayarkan</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                    <div class="space-2"></div>
+
+                                    <div class="row">
+
+                                        <div class="col-md-5">
+                                            <label>LAMPIRAN : </label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <select name="txt_lampiran" id="txt_lampiran" class="form-control">
+                                                <option value='-'>- LAMPIRAN -</option>
+                                                <option value='1'>Lampirkan Absensi</option>
+                                                <option value='2'>Tidak Dengan Absensi</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="space-2"></div>
+                                </div>
+                                <!-- ER / BT dan Lampiran -->
+
+
+                            </div>
+                        </div> <!-- end div hidden er biasa -->
+                        <!-- ============================== KANAN ============== -->
+                        <!--  script hidden ER biasa -->
+                        <div id="erbiasa1">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="form-group">
+
+                                    </div>
+                                </div>
+                                <div class="space-24"></div>
+                                <div class="space-24"></div>
+                                <div class="space-24"></div>
+                                <div class="space-24"></div>
+                                <div class="space-24"></div>
+
+                                <div class="space-24"></div>
+                                <!-- Hide PR PO Date BT -->
+                                <div id="hide_pr_po_bt">
+                                    <div class="row">
+
+                                        <div class="col-md-5">
+                                            <label>PR DATE : </label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <input class="form-control" data-date-format="yyyy-mm-dd" type="text"
+                                                name="txt_prdate" id="txt_prdate" title="PR DATE"
+                                                data-placement="bottom" data-original-title="PR DATE">
+                                        </div>
+
+                                    </div>
+                                    <div class="space-2"></div>
+
+                                    <div class="row">
+
+                                        <div class="col-md-5">
+                                            <label>PO DATE : </label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <input class="form-control" data-date-format="yyyy-mm-dd" type="text"
+                                                name="txt_podate" id="txt_podate" title="PO DATE"
+                                                data-placement="bottom" data-original-title="PO DATE">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="space-2"></div>
+                                </div>
+                                <!-- Hide PR PO Date BT -->
+
+
+                                <div class="space-2"></div>
+
+                                <div class="row">
+
+                                    <div class="col-md-5">
+                                        <label>ACCOUNTING DATE : </label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input class="form-control" data-date-format="yyyy-mm-dd" type="text"
+                                            name="txt_accdate" id="txt_accdate" title="ACCOUNTING DATE"
+                                            data-placement="bottom" data-original-title="ACCOUNTING DATE">
+                                    </div>
+
+                                </div>
+
+                                <div class="space-2"></div>
+
+                                <div class="row">
+
+                                    <div class="col-md-5">
+                                        <label>TANGGAL CAIR : </label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input class="form-control" data-date-format="yyyy-mm-dd" type="text"
+                                            name="txt_tglcair" id="txt_tglcair" title="TANGGAL CAIR"
+                                            data-placement="bottom" data-original-title="TANGGAL CAIR">
+                                    </div>
+
+                                </div>
+
+                                <div class="space-2"></div>
+                                <div class="row">
+
+                                    <div class="col-md-5">
+                                        <label>BRANCH ID : </label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input class="form-control" data-date-format="yyyy-mm-dd" type="text"
+                                            name="txt_branchid" id="txt_branchid" title="BRANCH ID"
+                                            data-placement="bottom" data-original-title="BRANCH ID">
+                                    </div>
+
+                                </div>
+                                <% if(departemen =='COST CONTROL') { %>
+                                <div class="space-2"></div>
+                                <div class="row" id='hidden1'>
+
+                                    <div class="col-md-5">
+                                        <label>BENEFICIARY : </label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input class="form-control" data-date-format="yyyy-mm-dd" type="text"
+                                            name="txt_beneficiary" id="txt_beneficiary" title="BENEFICIARY"
+                                            data-placement="bottom" data-original-title="BENEFICIARY">
+                                    </div>
+
+                                </div>
+
+                                <div class="space-2"></div>
+                                <div class="row" id='hidden3'>
+
+                                    <div class="col-md-5">
+                                        <label>ACCOUNT NUMBER : </label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input class="form-control" data-date-format="yyyy-mm-dd" type="text"
+                                            name="txt_accnumber" id="txt_accnumber" title="ACCOUNT NUMBER"
+                                            data-placement="bottom" data-original-title="ACCOUNT NUMBER">
+                                    </div>
+
+                                </div>
+                                <% } %>
+
+                                <% var j, i; if(departemen =='COST CONTROL') {
+                                    j = 8;
+                                } else {
+                                    j = 4;
+                                }
+                                for( i = 1; i < j; i++){ 
+                                %>
+                                <div class="space-2"></div>
+                                <div class="row">
+
+                                    <div class="col-md-5">
+
+                                    </div>
+                                    <div class="col-md-7">
+                                        &nbsp;
+                                    </div>
+
+                                </div>
+                                <% } %>
+
+                                <% if(departemen =='COST CONTROL') { %>
+                                <div id="hidden4" style="display: none;">
+                                    <div class="space-2"></div>
+                                    <div class="row">
+
+                                        <div class="col-md-5">
+
+                                        </div>
+                                        <div class="col-md-7">
+                                            &nbsp;
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <% } %>
+
+                                <div class="space-24"></div>
+                                <div class="space-24"></div>
+                                <div class="space-24"></div>
+                                <div class="space-24"></div>
+
+                                <div id="spasi-er-bt-lampiran">
+                                    <div class="space-24"></div>
+                                    <div class="space-24"></div>
+                                    <div class="space-24"></div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="col-md-5">
+                                        <label>TIPE ER : </label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <select name="txt_tipeerpr" id="txt_tipeerpr" class="form-control">
+                                            <option value=''>- TIPE ER -</option>
+                                            <% data_tipe_er.forEach(function(value) { %>
+                                            <option value="<%= value.id_tipe %>">
+                                                <%= value.TIPE_ER %>
+                                            </option>
+                                            <% }) %>
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- TAC -->
+                                <div id="tac">
+                                    <div class="space-2"></div>
+                                    <div class="row">
+
+                                        <div class="col-md-5">
+                                            <label>TAC : </label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <select name="txt_tac" id="txt_tac" class="form-control">
+                                                <option value='-'>- TAC -</option>
+                                                <% data_tac.forEach(function(value) { %>
+                                                <option value="<%= value.id_tipe %>">
+                                                    <%= value.TIPE_ER %>
+                                                </option>
+                                                <% }) %>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- TAC -->
+
+                                <div class="space-2"></div>
+                                <div class="row">
+
+                                    <div class="col-md-5">
+                                        <label>VALIDATOR 2 : </label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input class="form-control" data-date-format="yyyy-mm-dd" type="text"
+                                            name="txt_validator2" id="txt_validator2" title="VALIDATOR 2"
+                                            data-placement="bottom" data-original-title="VALIDATOR 2" readonly="">
+
+                                        <!-- <select class="form-control" data-placeholder="Validator 2" name="txt_validator2"
+                                            id="txt_validator2">
+                                            <option value="">- Validator 2 -</option>
+                                            <% data_validator.forEach(function(value) { %>
+                                            <option value="<%= value.id_validator %>">
+                                                <%= value.nama_validator %>
+                                            </option>
+                                            <% }) %>
+                                        </select> -->
+
+                                    </div>
+
+                                </div>
+
+                                <div class="space-2"></div>
+
+                                <div class="row">
+
+                                    <div class="col-md-5">
+                                        <label>TANGGAL INCOMING : </label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input class="form-control date-picker" data-date-format="yyyy-mm-dd"
+                                            type="text" name="txt_ti" id="txt_ti" title="TANGGAL INCOMING"
+                                            data-placement="bottom" data-original-title="TANGGAL INCOMING"
+                                            autocomplete="off">
+                                    </div>
+
+                                </div>
+
+                                <div class="space-2"></div>
+
+                                <div class="row">
+
+                                    <div class="col-md-5">
+                                        <label>TANGGAL INCOMING FINANCE : </label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input class="form-control date-picker" data-date-format="yyyy-mm-dd"
+                                            type="text" name="txt_tif" id="txt_tif" title="TANGGAL INCOMING FINANCE"
+                                            data-placement="bottom" data-original-title="TANGGAL INCOMING FINANCE"
+                                            autocomplete="off">
+                                    </div>
+
+                                </div>
+
+                                <div class="space-2"></div>
+
+                                <div class="row">
+
+                                    <div class="col-md-5">
+                                        <label>REMARKS : </label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input class="form-control" data-date-format="yyyy-mm-dd" type="text"
+                                            name="txt_remarks" id="txt_remarks" title="REMARKS" data-placement="bottom"
+                                            data-original-title="REMARKS" onkeypress="return Simbol(event)">
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div> <!-- end div script hidden er biasa -->
+
+
+                    <div class="col-md-11">
+                        <div class="row">
+
+                            <!-- ============================== KIRI ============== -->
+                            <div id="multibranch">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-5">
+                                                <label>ER NUMBER : </label>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <input class="form-control" type="text" name="txt_noermb"
+                                                    id="txt_noermb" title="ER NUMBER" data-placement="bottom"
+                                                    data-original-title="ER NUMBER" readonly="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="space-2"></div>
+                                    <div class="row">
+
+                                        <div class="col-md-5">
+                                            <label>BENEFICIARY : </label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <input class="form-control" type="text" name="txt_beneficiarymb"
+                                                id="txt_beneficiarymb" title="BENEFICIARY" data-placement="bottom"
+                                                data-original-title="BENEFICIARY" readonly="">
+                                        </div>
+
+                                    </div>
+                                    <div class="space-2"></div>
+                                    <div class="row">
+
+                                        <div class="col-md-5">
+                                            <label>ACCOUNT NUMBER : </label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <input class="form-control" type="text" name="txt_accountnumbermb"
+                                                id="txt_accountnumbermb" title="ACCOUNT NUMBER" data-placement="bottom"
+                                                data-original-title="ACCOUNT NUMBER" readonly="">
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="space-24"></div>
+                                    <div class="row">
+
+                                        <div class="col-md-5">
+                                            <label>VALIDASI : </label>
+                                        </div>
+                                        <div class="col-md-7">
+
+                                            <label id="pesanmb"></label>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="space-24"></div>
+                                    <div class="row">
+
+                                        <div class="col-md-5">
+                                            <label>CHECKER : </label>
+                                        </div>
+                                        <div class="col-md-7">
+
+
+                                            <select class="form-control" data-placeholder="Checker" name="txt_checkermb"
+                                                id="txt_checkermb">
+                                                <option value="">- Checker -</option>
+                                                <% data_master_checker.forEach(function(value) { %>
+                                                <option value="<%= value.id_checker %>">
+                                                    <%= value.nama_checker %>
+                                                </option>
+                                                <% }) %>
+                                            </select>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="space-2"></div>
+                                    <div class="row">
+
+                                        <div class="col-md-5">
+                                            <label>VALIDATOR 1 : </label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <input class="form-control" type="text" name="txt_validator1mb"
+                                                id="txt_validator1mb" title="VALIDATOR 1" data-placement="bottom"
+                                                data-original-title="VALIDATOR 1" readonly="">
+
+                                            <!-- <select class="form-control" data-placeholder="Validator 1" name="txt_validator1mb"
+                                                id="txt_validator1mb">
+                                                <option value="">- Validator 1 -</option>
+                                                <% data_validator.forEach(function(value) { %>
+                                                <option value="<%= value.id_validator %>">
+                                                    <%= value.nama_validator %>
+                                                </option>
+                                                <% }) %>
+                                            </select> -->
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="space-2"></div>
+                                    <div class="row">
+
+                                        <div class="col-md-5">
+                                            <label>PERIODE : </label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <input class="form-control date-picker" data-date-format="yyyy-mm-dd"
+                                                type="text" name="txt_periodemb" id="txt_periodemb" title="PERIODE"
+                                                data-placement="bottom" data-original-title="PERIODE">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="space-2"></div>
+                                    <div class="row">
+
+                                        <div class="col-md-5">
+                                            <label>TGL PROSES CHECKER : </label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <input class="form-control date-picker" data-date-format="yyyy-mm-dd"
+                                                type="text" name="txt_tpcmb" id="txt_tpcmb"
+                                                title="TANGGAL PROSES CHECKER" data-placement="bottom"
+                                                data-original-title="TANGGAL PROSES CHECKER">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="space-2"></div>
+                                    <div class="row">
+
+                                        <div class="col-md-5">
+                                            <label>STATUS : </label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <select name="txt_statusmb" id="txt_statusmb" class="">
+                                                <option value=''>Status</option>
+                                                <option value='Validate'> Validate</option>
+                                                <option value='Pending'> Pending</option>
+                                                <option value='Cancel'> Cancel</option>
+
+
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="space-2"></div>
+                                    <div class="row">
+
+                                        <div class="col-md-5">
+                                            <label>DEPARTMENT : </label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <select name="txt_depmb" id="txt_depmb" class="form-control">
+                                                <option value=''>- DEPARTMENT -</option>
+                                                <% data_departemen.forEach(function(value) { %>
+                                                <option value="<%= value.id_departemen %>">
+                                                    <%= value.Title %>
+                                                </option>
+                                                <% }) %>
+
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Untuk multibranch -->
+                                    <input type="hidden" id="txt_noprmb" name="txt_noprmb">
+                                    <input type="hidden" id="htxt_branchidmb" name="htxt_branchidmb">
+                                    <input type="hidden" id="htxt_erdatemb" name="htxt_erdatemb">
+                                    <input type="hidden" id="htxt_prdatemb" name="htxt_prdatemb">
+                                    <input type="hidden" id="htxt_accdatemb" name="htxt_accdatemb">
+                                    <input type="hidden" id="htxt_tglcairmb" name="htxt_tglcairmb">
+
+                                    <input type="hidden" id="txt_tipeermb" name="txt_tipeermb">
+                                    <input type="hidden" id="txt_appdatemb" name="txt_appdatemb">
+                                    <input type="hidden" id="txt_invmb" name="txt_invmb">
+                                    <input type="hidden" name="txt_slaprmb" id="txt_slaprmb" />
+                                    <input type="hidden" name="txt_slapomb" id="txt_slapomb" />
+                                    <input type="hidden" name="txt_slaerdatemb" id="txt_slaerdatemb" />
+                                    <input type="hidden" name="txt_slakirimmb" id="txt_slakirimmb" />
+                                    <input type="hidden" name="txt_slacabangmb" id="txt_slacabangmb" />
+                                    <input type="hidden" name="txt_acctmb" id="txt_acctmb" />
+                                    <input type="hidden" name="txt_slafinmb" id="txt_slafinmb" />
+                                    <input type="hidden" name="txt_slahqmb" id="txt_slahqmb" />
+                                    <input type="hidden" name="txt_nameappmb" id="txt_nameappmb" value="<%= nik %>">
+                                    <!-- Untuk multibranch -->
+
+
+
+
+                                </div>
+                            </div>
+
+
+                            <!-- ============================== KANAN ============== -->
+                            <div id="multibranch1">
+                                <div class="col-md-6">
+
+
+                                    <div class="row">
+
+                                        <div class="col-md-5">
+                                            <label>BANK NAME : </label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <input class="form-control" type="text" name="txt_banknamemb"
+                                                id="txt_banknamemb" title="BANK NAME" data-placement="bottom"
+                                                data-original-title="BANK NAME" readonly="">
+                                        </div>
+
+                                    </div>
+                                    <div class="space-2"></div>
+
+                                    <div class="row">
+
+                                        <div class="col-md-5">
+                                            <label>TAX : </label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="input-group">
+
+                                                <span class="input-group-addon" id="basic-addon1">IDR</span>
+                                                <input class="form-control" type="text" name="txt_taxcodemb"
+                                                    id="txt_taxcodemb" title="TAX" data-placement="bottom"
+                                                    data-original-title="TAX" readonly="">
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="space-2"></div>
+
+                                    <div class="row">
+
+                                        <div class="col-md-5">
+                                            <label>AMOUNT PAID : </label>
+                                        </div>
+                                        <div class="col-md-7">
+
+                                            <div class="input-group">
+
+                                                <span class="input-group-addon" id="basic-addon1">IDR</span>
+                                                <input class="form-control" type="text" name="txt_amountpaidmb"
+                                                    id="txt_amountpaidmb" title="AMOUNT PAID" data-placement="bottom"
+                                                    data-original-title="AMOUNT PAID" readonly="">
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <% var i, j; if(departemen =='COST CONTROL') {
+                                        j = 5;
+                                    } else {
+                                        j = 5;
+                                    }
+                                    for( i = 0; i < j; i++){ %>
+                                    <div class="space-2"></div>
+                                    <div class="row">
+
+                                        <div class="col-md-5">
+
+                                        </div>
+                                        <div class="col-md-7">
+                                            &nbsp;
+                                        </div>
+
+                                    </div>
+                                    <% } %>
+
+                                    <div class="space-2"></div>
+
+                                    <div class="row">
+
+                                        <div class="col-md-5">
+                                            <label>TIPE ER : </label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <select name="txt_tipeerprmb" id="txt_tipeerprmb" class="form-control">
+                                                <option value=''>- TIPE ER -</option>
+                                                <% data_tipe_er.forEach(function(value) { %>
+                                                <option value="<%= value.id_tipe %>">
+                                                    <%= value.TIPE_ER %>
+                                                </option>
+                                                <% }) %>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="space-2"></div>
+
+                                    <!-- TAC -->
+                                    <div id="tacmb">
+                                        <div class="row">
+
+                                            <div class="col-md-5">
+                                                <label>TAC : </label>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <select name="txt_tacmb" id="txt_tacmb" class="form-control">
+                                                    <option value='-'>- TAC -</option>
+                                                    <% data_tac.forEach(function(value) { %>
+                                                    <option value="<%= value.id_tipe %>">
+                                                        <%= value.TIPE_ER %>
+                                                    </option>
+                                                    <% }) %>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- TAC -->
+
+                                    <div class="space-2"></div>
+
+                                    <div class="row">
+
+                                        <div class="col-md-5">
+                                            <label>VALIDATOR 2 : </label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <input class="form-control" data-date-format="yyyy-mm-dd" type="text"
+                                                name="txt_validator2mb" id="txt_validator2mb" title="VALIDATOR 2"
+                                                data-placement="bottom" data-original-title="VALIDATOR 2" readonly="">
+
+                                            <!-- <select class="form-control" data-placeholder="Validator 2" name="txt_validator2mb"
+                                                id="txt_validator2mb">
+                                                <option value="">- Validator 2 -</option>
+
+                                                <% data_validator.forEach(function(value) { %>
+                                                <option value="<%= value.id_validator %>">
+                                                    <%= value.nama_validator %>
+                                                </option>
+                                                <% }) %>
+                                            </select> -->
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="space-2"></div>
+
+                                    <div class="row">
+
+                                        <div class="col-md-5">
+                                            <label>TANGGAL INCOMING : </label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <input class="form-control date-picker" data-date-format="yyyy-mm-dd"
+                                                type="text" name="txt_timb" id="txt_timb" title="TANGGAL INCOMING"
+                                                data-placement="bottom" data-original-title="TANGGAL INCOMING">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="space-2"></div>
+
+                                    <div class="row">
+
+                                        <div class="col-md-5">
+                                            <label>TANGGAL INCOMING FINANCE : </label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <input class="form-control date-picker" data-date-format="yyyy-mm-dd"
+                                                type="text" name="txt_tifmb" id="txt_tifmb"
+                                                title="TANGGAL INCOMING FINANCE" data-placement="bottom"
+                                                data-original-title="TANGGAL INCOMING FINANCE">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="space-2"></div>
+
+                                    <div class="row">
+
+                                        <div class="col-md-5">
+                                            <label>REMARKS : </label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <input class="form-control" data-date-format="yyyy-mm-dd" type="text"
+                                                name="txt_remarksmb" id="txt_remarksmb" title="REMARKS"
+                                                data-placement="bottom" data-original-title="REMARKS"
+                                                onkeypress="return Simbol(event)">
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="space-10"></div>
+                    </div>
+
+
+
+                    <div class="space-10"></div>
+                    <div class="col-md-12 text-center">
+                        <button class="form-control btn btn-primary" type="button" name="btn_save" id="btn_save"
+                            value="SAVE" style="width:200px;display:none;">
+                            SAVE
+                        </button>
+
+                        <button class="form-control btn btn-danger" type="button" name="btn_update" id="btn_update"
+                            value="UPDATE" style="width:200px;display:none;">
+                            UPDATE
+                        </button>
+                    </div>
+                </div>
+
+                <input type="hidden" name="txt_slapr" id="txt_slapr" />
+                <input type="hidden" name="txt_slapo" id="txt_slapo" />
+                <input type="hidden" name="txt_slaerdate" id="txt_slaerdate" />
+                <input type="hidden" name="txt_slakirim" id="txt_slakirim" />
+                <input type="hidden" name="txt_slacabang" id="txt_slacabang" />
+                <input type="hidden" name="txt_acct" id="txt_acct" />
+                <input type="hidden" name="txt_slafin" id="txt_slafin" />
+                <input type="hidden" name="txt_slahq" id="txt_slahq" />
+                <input type="hidden" name="kode_cabang" id="kode_cabang" />
+
+                <input type="hidden" name="id_checker" id="id_checker" />
+                <input type="hidden" name="id_validator1" id="id_validator1" />
+                <input type="hidden" name="id_validator2" id="id_validator2" />
+
+                <input type="hidden" id="htxt_nopr1mb" name="htxt_nopr1mb">
+                <input type="hidden" id="htxt_noer1mb" name="htxt_noer1mb">
+                <input type="hidden" id="htxt_inv1mb" name="htxt_inv1mb">
+                <!-- Untuk er selain multibranch -->
+                <input type="hidden" id="htxt_branchid" name="htxt_branchid">
+                <input type="hidden" id="htxt_appdate" name="htxt_appdate" />
+                <input type="hidden" id="htxt_erdate" name="htxt_erdate">
+                <input type="hidden" id="htxt_prdate" name="htxt_prdate">
+                <input type="hidden" id="htxt_accdate" name="htxt_accdate">
+                <input type="hidden" id="htxt_tglcair" name="htxt_tglcair">
+                <input type="hidden" id="htxt_nopr1" name="htxt_nopr1">
+                <input type="hidden" id="htxt_noer1" name="htxt_noer1">
+                <input type="hidden" id="htxt_inv1" name="htxt_inv1">
+                <input type="hidden" id="htxt_validator1" name="htxt_validator1">
+                <input type="hidden" id="htxt_validator2" name="htxt_validator2">
+                <input type="hidden" id="htxt_checker" name="htxt_checker">
+                <input type="hidden" id="htxt_dep" name="htxt_dep">
+                <input type="hidden" id="htxt_tipeer" name="htxt_tipeer">
+                <input type="hidden" id="htxt_periode" name="htxt_periode">
+                <input type="hidden" id="htxt_ti" name="htxt_ti">
+                <input type="hidden" id="htxt_tpc" name="htxt_tpc">
+                <input type="hidden" id="htxt_status" name="htxt_status">
+                <input type="hidden" id="htxt_remarks" name="htxt_remarks">
+                <input type="hidden" id="htxt_tif" name="htxt_tif">
+                <input type="hidden" id="htxt_tipeerpr" name="htxt_tipeerpr">
+
+                <input type="hidden" id="htxt_noer" name="htxt_noer">
+                <input type="hidden" id="htxt_nopr" name="htxt_nopr">
+                <input type="hidden" id="htxt_inv" name="htxt_inv">
+                <!-- Untuk er selain multibranch -->
+            </form>
+
+            <div class="col-md-11" id="erbiasa2">
+                <div class="space-24"></div>
+                <div class="space-24"></div>
+                <table cellspacing="1" cellpadding="1" class="table table-responsive text-center table-bordered1">
+                    <tbody>
+                        <thead>
+                            <tr>
+                                <td colspan="8">SLA (days)</td>
+                            </tr>
+                            <tr>
+                                <td>SLA PR</td>
+                                <td>SLA PO</td>
+                                <td>SLA ER DATE</td>
+                                <td>SLA KIRIM</td>
+                                <td>SLA CABANG</td>
+                                <td>ACCT</td>
+                                <td>SLA FIN</td>
+                                <td>SLA HQ</td>
+                            </tr>
+                            <tr>
+                                <td id="slapr" class="text-bold">&nbsp;</td>
+                                <td id="slapo" class="text-bold">&nbsp;</td>
+                                <td id="slaerdate" class="text-bold">&nbsp;</td>
+                                <td id="slakirim" class="text-bold">&nbsp;</td>
+                                <td id="slacabang" class="text-bold">&nbsp;</td>
+                                <td id="acct" class="text-bold">&nbsp;</td>
+                                <td id="slafin" class="text-bold">&nbsp;</td>
+                                <td id="slahq" class="text-bold">&nbsp;</td>
+                            </tr>
+                        </thead>
+
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div><!-- /.page-content -->
+    </div>
+</div><!-- /.main-content -->

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %> -
+    <%= title_page %>
+  </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="manifest" href="/images/site.webmanifest">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/images/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="User Login Page" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+
+  <!-- bootstrap & fontawesome -->
+  <link rel="stylesheet" href="/stylesheets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/stylesheets/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+  <!-- page specific plugin styles -->
+
+  <link rel="stylesheet" href="/stylesheets/css/chosen.min.css" />
+  <link rel="stylesheet" href="/stylesheets/css/bootstrap-datepicker3.min.css" />
+
+  <!-- text fonts -->
+  <link rel="stylesheet" href="/stylesheets/css/fonts.googleapis.com.css" />
+
+  <!-- ace styles -->
+  <link rel="stylesheet" href="/stylesheets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+
+  <!--[if lte IE 9]>
+      <link rel="stylesheet" href="/stylesheets/css/ace-part2.min.css" class="ace-main-stylesheet" />
+    <![endif]-->
+  <link rel="stylesheet" href="/stylesheets/css/ace-skins.min.css" />
+  <link rel="stylesheet" href="/stylesheets/css/ace-rtl.min.css" />
+
+  <link rel="stylesheet" href="/stylesheets/css/ace-ie.min.css" />
+  <link rel="stylesheet" href="/stylesheets/swal/sweetalert.css" />
+
+  <% if(url=='/headquarter' || url=='/branch' || url=='/akses' || url=='edit_akses' || url=='/checker' || url=='edit_checker') { %>
+    <link rel="stylesheet" href="/stylesheets/css/selectize.default.css" data-theme="default">
+		<link rel="stylesheet" href="/stylesheets/css/selectize.bootstrap2.css" data-theme="bootstrap2" disabled="disabled">
+		<link rel="stylesheet" href="/stylesheets/css/selectize.bootstrap3.css" data-theme="bootstrap3" disabled="disabled">
+		<link rel="stylesheet" href="/stylesheets/css/selectize.legacy.css" data-theme="legacy" disabled="disabled">
+  <% } %> 
+  <!-- inline styles related to this page -->
+
+
+  <script src="/javascripts/ace-extra.min.js"></script>
+
+
+  <script src="/javascripts/html5shiv.min.js"></script>
+  <script src="/javascripts/respond.min.js"></script>
+
+  <style>
+
+    input {
+            border-left: 2px solid #428BCA!important;
+        }
+        select  {
+            border-left: 2px solid #428BCA!important;
+        }
+        textarea {
+            border-left: 2px solid #428BCA!important;
+        }
+        .input-group-addon {
+            border-left: 2px solid #428BCA!important;
+        }
+    
+        </style>
+
+  <!--[if lte IE 9]>
+      <link rel="stylesheet" href="/stylesheets/css/ace-ie.min.css" />
+    <![endif]-->
+
+  <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+  <!--[if lte IE 8]>
+    <script src="/javascripts/html5shiv.min.js"></script>
+    <script src="/javascripts/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body class="<%= body_class %>">
+
+  <div id="home">
+
+    <%- include('./components/menu_'+menu) %>
+
+    <%- include('pages/'+content) %>
+
+    <% include ./components/footer %>
+
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+      <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+    </a>
+  </div>
+
+  <form>
+    <input type="hidden" id="url" value="<%= full_url %>"/>
+  </form>
+
+
+  <!--[if !IE]> -->
+  <script src="/javascripts/jquery-2.1.4.min.js"></script>
+
+  <!-- <![endif]-->
+
+  <!--[if IE]>
+  <script src="template//javascripts/jquery-1.11.3.min.js"></script>
+  <![endif]-->
+  <script type="text/javascript">
+    if ('ontouchstart' in document.documentElement) document.write(
+      "<script src='/javascripts/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+  </script>
+  <script src="/javascripts/bootstrap.min.js"></script>
+
+  <!-- page specific plugin scripts -->
+
+  <!--[if lte IE 8]>
+    <script src="/javascripts/excanvas.min.js"></script>
+  <![endif]-->
+
+  <!-- <script src="/javascripts/jquery-ui.min.js"></script> -->
+
+  <script src="/javascripts/chosen.jquery.min.js"></script>
+
+  <script src="/javascripts/bootstrap-datepicker.min.js"></script>
+  <script src="/javascripts/autosize.min.js"></script>
+
+
+  <!-- ace scripts -->
+  <script src="/javascripts/ace-elements.min.js"></script>
+  <script src="/javascripts/ace.min.js"></script>
+  <script src="/javascripts/chosen.jquery.min.js"></script>
+  <script src="/javascripts/sweetalert-dev.js"></script>
+
+  <script src="/javascripts/jquery.dataTables.min.js"></script>
+  <script src="/javascripts/jquery.dataTables.bootstrap.min.js"></script>
+  <script src="/javascripts/dataTables.buttons.min.js"></script>
+  <script src="/javascripts/dataTables.select.min.js"></script>
+  <script src="/javascripts/buttons.flash.min.js"></script>
+  <script src="/javascripts/buttons.html5.min.js"></script>
+  <script src="/javascripts/buttons.print.min.js"></script>
+  <script src="/javascripts/buttons.colVis.min.js"></script>
+  <script src="/javascripts/jquery.validate.min.js"></script>
+  <script src="/javascripts/jszip.min.js"></script>
+  <script src="/javascripts/pdfmake.min.js"></script>
+  <script src="/javascripts/vfs_fonts.js"></script>
+
+
+  <% if(url=='/headquarter') { %>
+  <script src="/javascripts/headquarter.js"></script>
+  <script src="/javascripts/Proses_CariHQ.js"></script>
+  <script src="/javascripts/selectize.js"></script>
+  <% } %>
+
+  <% if(url=='/branch') { %>
+  <script src="/javascripts/branch.js"></script>
+  <script src="/javascripts/Proses_CariBR.js"></script>
+  <script src="/javascripts/selectize.js"></script>
+  <% } %>
+
+  <% if(url=='/akses' || url=='edit_akses') { %>
+  <script src="/javascripts/akses.js"></script>
+  <script src="/javascripts/selectize.js"></script>
+  <% } %>
+
+  <% if(url=='/tipe_er' || url=='edit_tipe_er') { %>
+  <script src="/javascripts/tipe_er.js"></script>
+  <% } %>
+
+  <% if(url=='/master_checker' || url=='edit_master_checker') { %>
+  <script src="/javascripts/master_checker.js"></script>
+  <% } %>
+
+  <% if(url=='/master_validator' || url=='edit_master_validator') { %>
+  <script src="/javascripts/master_validator.js"></script>
+  <% } %>
+
+  <% if(url=='/departemen' || url=='edit_departemen') { %>
+  <script src="/javascripts/departemen.js"></script>
+  <% } %>
+
+  <% if(url=='/checker' || url=='edit_checker')  { %>
+  <script src="/javascripts/checker.js"></script>
+  <script src="/javascripts/selectize.js"></script>
+  <% } %>
+
+  <% if(url=='/master_tac' || url=='edit_master_tac') { %>
+    <script src="/javascripts/master_tac.js"></script>
+  <% } %>
+
+  <% if(url=='/master_erbt' || url=='edit_master_erbt') { %>
+    <script src="/javascripts/master_erbt.js"></script>
+  <% } %>
+
+  <% if(url=='/master_lampiran' || url=='edit_master_lampiran') { %>
+    <script src="/javascripts/master_lampiran.js"></script>
+  <% } %>
+
+  <% if(url=='/master_status' || url=='edit_master_status') { %>
+    <script src="/javascripts/master_status.js"></script>
+  <% } %>
+
+  <% if(url=='/report' || url=='/report_post') { %>
+    <script src="/javascripts/report.js"></script>
+  <% } %>
+
+</body>
+
+</html>

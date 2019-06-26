@@ -1,0 +1,100 @@
+<div class="main-content">
+        <div class="main-content-inner">
+            <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="ace-icon fa fa-home home-icon"></i>
+                        <a href="/home">Home</a>
+                    </li>
+    
+    
+                    <li class="active">Report</li>
+                </ul><!-- /.breadcrumb -->
+    
+                <div class="nav-search" id="nav-search">
+                    <form class="form-search">
+                        <span class="input-icon">
+    
+                        </span>
+                    </form>
+                </div><!-- /.nav-search -->
+            </div>
+    
+            <div class="page-content">
+    
+    
+                <div class="page-header">
+                    <h1>
+                        Report
+                        <small>
+                            <i class="ace-icon fa fa-angle-double-right"></i>
+                            Export To Excel
+                        </small>
+                    </h1>
+                </div><!-- /.page-header -->
+                <div class="space-12"></div>
+    
+    
+                <!-- ============================== FORM ============== -->
+                <form method="post" id="report-form" action="/home/report">
+                    <div class="col-xs-11">
+                        <div class="row">
+    
+                            <!-- ============================== KIRI ============== -->
+                            <div class="col-xs-6">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-5">
+                                            <label>Tanggal Awal : </label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <input class="form-control date-picker" data-date-format="yyyy-mm-dd" type="text"
+                                                name="tgl_awal" id="tgl_awal" title="Tanggal Awal" data-placement="bottom"
+                                                data-original-title="Tanggal Awal" autocomplete="off">
+                                            <span class="help-block" id="error"></span>
+                                        </div>
+                                    </div>
+    
+                                </div>
+                                <div class="space-12"></div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-5">
+                                            <label>Tanggal Akhir : </label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <input class="form-control date-picker" data-date-format="yyyy-mm-dd" type="text"
+                                                name="tgl_akhir" id="tgl_akhir" title="Tanggal Akhir" data-placement="bottom"
+                                                data-original-title="Tanggal Akhir" autocomplete="off">
+                                            <span class="help-block" id="error"></span>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="space-12"></div>
+                                <div class="row">
+    
+                                    <div class="col-md-5">
+                                        &nbsp;
+                                    </div>
+                                    <div class="col-xs-7 text-center">
+                                        <button type="submit" class="btn btn-primary" id="btn-search">Cari</button>
+                                    </div>
+    
+                                </div>
+                            </div>
+                </form>
+    
+                <div class="col-md-11">
+                    <div class="space-24"></div>
+                    <div class="space-24"></div>
+    
+    
+                </div>
+            </div>
+        </div>
+    
+    
+    </div><!-- /.page-content -->
+    </div>
+    </div><!-- /.main-content -->

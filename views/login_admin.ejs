@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="manifest" href="/images/site.webmanifest">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/images/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="User Login Page" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+
+  <!-- bootstrap & fontawesome -->
+  <link rel="stylesheet" href="/stylesheets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/stylesheets/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+  <!-- text fonts -->
+  <link rel="stylesheet" href="/stylesheets/css/fonts.googleapis.com.css" />
+
+
+  <!-- ace styles -->
+  <link rel="stylesheet" href="/stylesheets/css/ace.min.css" />
+
+  <!--[if lte IE 9]>
+      <link rel="stylesheet" href="/stylesheets/css/ace-part2.min.css" />
+    <![endif]-->
+  <link rel="stylesheet" href="/stylesheets/css/ace.min.css" />
+
+  <style>
+
+    input {
+        border-left: 2px solid #428BCA!important;
+    }
+    select  {
+        border-left: 2px solid #428BCA!important;
+    }
+    textarea {
+        border-left: 2px solid #428BCA!important;
+    }
+    .input-group-addon {
+        border-left: 2px solid #428BCA!important;
+    }
+
+    </style>
+
+  <!--[if lte IE 9]>
+      <link rel="stylesheet" href="/stylesheets/css/ace-ie.min.css" />
+    <![endif]-->
+
+  <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+  <!--[if lte IE 8]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body class="login-layout">
+
+  <div class="main-container">
+    <div class="main-content">
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+          <div class="login-container">
+            <div class="center">
+              <h1>
+                <i class="ace-icon fa fa-search green"></i>
+                <span class="red">ER </span>
+                <span class="white" id="id-text2">- TRACKING</span>
+              </h1>
+              <h4 class="blue" id="id-company-text">&copy; PT. Bussan Auto Finance</h4>
+            </div>
+            <div class="space-6"></div>
+            <div class="position-relative">
+              <div id="login-box" class="login-box visible widget-box no-border">
+                <div class="widget-body">
+                  <div class="widget-main center">
+                    <h4 class="header blue lighter bigger">
+                      <i class="ace-icon fa fa-sign-in green"></i>
+                      Login Administrator
+                      <% if(messages.info) { %>
+                      <%- messages.info %>
+                      <% } %>
+                    </h4>
+                    <div class="space-6"></div>
+                    <form method="post" action="/login/admin" id="login-form">
+                      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                      <fieldset>
+                        <div class="form-group">
+                          <label class="block clearfix">
+                            <span class="block input-icon input-icon-left">
+                              <input type="text" class="form-control" placeholder="Username" name="username" id="username"
+                                autofocus maxlength="25" style="border-left: 2px solid #428BCA!important;" value="" />
+                              <input type="hidden" id="key" name="key" value="$2y$10$/AAaV7PjK03Q1RpZKFRc3O78U90MiER2ONAvguu7/PgitI00Hk/H." />
+                              <span class="help-block" id="error"></span>
+                              <i class="ace-icon fa fa-user"></i>
+                              <!-- 
+                                          branch : 0246001010
+                                          -->
+                            </span>
+                          </label>
+                        </div>
+                        <div class="form-group">
+                          <label class="block clearfix">
+                            <span class="block input-icon input-icon-left">
+                              <input type="password" class="form-control" placeholder="Password" name="password" id="password"
+                                style="border-left: 2px solid #428BCA!important;" value="" />
+                              <span class="help-block" id="error"></span>
+                              <i class="ace-icon fa fa-lock"></i>
+                              <!-- 
+                                              branch : 0246001010
+                                              -->
+                            </span>
+                          </label>
+                        </div>
+                        <div class="space"></div>
+                        <div class="clearfix">
+                          <button type="submit" class="width-35 pull-center btn btn-primary">
+                            <span class="bigger-110">Login </span>
+                            <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+                            <i class="ace-icon fa fa-arrow-circle-right fa-lg"></i>
+                          </button>
+                        </div>
+                        <div class="space-4"></div>
+                      </fieldset>
+                    </form>
+                  </div>
+                  <!-- /.widget-main -->
+                  <div class="toolbar clearfix">
+                    <div></div>
+                  </div>
+                </div>
+                <!-- /.widget-body -->
+              </div>
+              <!-- /.login-box -->
+            </div>
+            <!-- /.position-relative -->
+          </div>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.main-content -->
+  </div>
+  <!-- /.main-container -->
+
+
+  <script src="/javascripts/jquery-2.1.4.min.js"></script>
+  <script src="/javascripts/jquery.validate.min.js"></script>
+  <script type="text/javascript">
+    $('document').ready(function () {
+      $("#login-form").validate({
+        rules: {
+          username: {
+            required: true
+          },
+          password: {
+            required: true
+          },
+
+        },
+        //For custom messages
+        messages: {
+          username: {
+            required: "Isi Username"
+          },
+          password: "Isi Password"
+        },
+        errorPlacement: function (error, element) {
+          $(element).closest('.form-group').find('.help-block').html(error.html());
+
+        },
+        highlight: function (element) {
+          $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+
+        },
+        unhighlight: function (element, errorClass, validClass) {
+          $(element).closest('.form-group').removeClass('has-error');
+          $(element).closest('.form-group').find('.help-block').html('');
+
+        },
+
+      });
+
+      /* daftar submit */
+    });
+  </script>
+  <!-- inline scripts related to this page -->
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('#btn-login-dark').on('click', function (e) {
+        $('body').attr('class', 'login-layout');
+        $('#id-text2').attr('class', 'white');
+        $('#id-company-text').attr('class', 'blue');
+      });
+    });
+  </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+{
+  "name": "er-tracking-node",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "set NODE_ENV=development && set DEBUG=er-tracking-node:* && nodemon ./bin/www",
+    "deploy": "pm2 start ./bin/www",
+    "stop": "pm2 stop ./bin/www",
+    "monit": "pm2 monit www",
+    "dev": "set NODE_ENV=development && set DEBUG=er-tracking-node:* && pm2 start ./bin/www --name er-tracking-dev",
+    "dev-linux": "export NODE_ENV=development && export DEBUG=er-tracking-node:* && nodemon ./bin/www",
+    "dev-linux-pm2": "export NODE_ENV=development && export DEBUG=er-tracking-node:* && pm2-runtime start ecosystem.config.js",
+    "prod-linux-pm2": "export NODE_ENV=production && export DEBUG=er-tracking-node:* && pm2-runtime start ecosystem.config.js",
+    "prod": "set NODE_ENV=production && set DEBUG=er-tracking-node:* && nodemon ./bin/www",
+    "prod-pm2": "set NODE_ENV=production && set DEBUG=er-tracking-node:* && pm2 start ./bin/www --name er-tracking-dev",
+    "prod-pm2-linux": "export NODE_ENV=production && export DEBUG=er-tracking-node:* && pm2 start ./bin/www --name er-tracking-prod",
+    "dev-debug": "set NODE_ENV=development && set DEBUG=* && nodemon ./bin/www ",
+    "dev-pm2": "set NODE_ENV=development && set DEBUG=er-tracking-node:* && pm2 start ./bin/www --name er-tracking-windows",
+    "dev-linux-forever": "export NODE_ENV=development && export DEBUG=er-tracking-node:* && forever start ./bin/www --uid er-tracking --watch --append -l -o out.log -e error.log"
+  },
+  "dependencies": {
+    "activedirectory": "^0.7.2",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.4",
+    "csurf": "^1.9.0",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "express-flash": "0.0.2",
+    "express-session": "^1.15.6",
+    "express-useragent": "^1.0.12",
+    "helmet": "^3.15.1",
+    "http-errors": "~1.6.2",
+    "md5": "^2.2.1",
+    "morgan": "~1.9.0",
+    "nodemon": "^1.18.10",
+    "soap": "^0.26.0",
+    "winston": "^3.2.1"
+  }
+}

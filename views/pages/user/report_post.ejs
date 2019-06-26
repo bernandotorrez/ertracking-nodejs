@@ -1,0 +1,517 @@
+<div class="main-content">
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="/home">Home</a>
+                </li>
+
+
+                <li class="active">Report</li>
+            </ul><!-- /.breadcrumb -->
+
+            <div class="nav-search" id="nav-search">
+                <form class="form-search">
+                    <span class="input-icon">
+
+                    </span>
+                </form>
+            </div><!-- /.nav-search -->
+        </div>
+
+        <div class="page-content">
+
+
+            <div class="page-header">
+                <h1>
+                    Report
+                    <small>
+                        <i class="ace-icon fa fa-angle-double-right"></i>
+                        Export To Excel
+                    </small>
+                </h1>
+            </div><!-- /.page-header -->
+            <div class="space-12"></div>
+
+
+            <!-- ============================== FORM ============== -->
+            <form method="post" id="report-form" action="/home/report">
+                <div class="col-xs-11">
+                    <div class="row">
+
+                        <!-- ============================== KIRI ============== -->
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-5">
+                                        <label>Tanggal Awal : </label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input class="form-control date-picker" data-date-format="yyyy-mm-dd" type="text"
+                                            name="tgl_awal" id="tgl_awal" title="Tanggal Awal" data-placement="bottom"
+                                            data-original-title="Tanggal Awal" autocomplete="off">
+                                        <span class="help-block" id="error"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="space-12"></div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-5">
+                                        <label>Tanggal Akhir : </label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input class="form-control date-picker" data-date-format="yyyy-mm-dd" type="text"
+                                            name="tgl_akhir" id="tgl_akhir" title="Tanggal Akhir" data-placement="bottom"
+                                            data-original-title="Tanggal Akhir" autocomplete="off">
+                                        <span class="help-block" id="error"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="space-12"></div>
+                            <div class="row">
+
+                                <div class="col-md-5">
+                                    &nbsp;
+                                </div>
+                                <div class="col-xs-7 text-center">
+                                    <button type="submit" class="btn btn-primary" id="btn-search">Cari</button>
+                                </div>
+
+                            </div>
+                        </div>
+            </form>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3 class="header smaller lighter blue text-right">
+
+                    </h3>
+
+
+                    <div class="clearfix">
+                        <div class="pull-right tableTools-container"></div>
+                    </div>
+                    <div class="table-header text-center">
+
+                        <u>
+                            <%= tgl_awal %> </u>
+                        Sampai
+                        <u>
+                            <%= tgl_akhir %></u>
+                    </div>
+
+                   
+                    <!-- div.table-responsive -->
+
+                    <!-- div.dataTables_borderWrap -->
+                    <div class="dt-buttons btn-overlap btn-group btn-overlap">
+                    </div>
+                    <div class="table-responsive">
+                        <table id="dynamic-table" class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="center">
+                                        NO
+                                    </th>
+                                    <th>PR NUMBER</th>
+                                    <th>ER NUMBER</th>
+                                    <th>INVOICE NUMBER</th>
+                                    <th>VALIDATOR1</th>
+
+                                    <th>
+
+                                        VALIDATOR2
+                                    </th>
+                                    <th>CHECKER</th>
+
+                                    <th>KODE CABANG</th>
+
+                                    <th>DEPARTEMENT</th>
+                                    <th>TIPE ER</th>
+                                    <th>PERIODE</th>
+                                    <th>TANGGAL INCOMING</th>
+                                    <th>TANGGAL PROSES CHECKER</th>
+                                    <th>STATUS</th>
+
+                                    <th>REMARKS</th>
+                                    <th>TANGGAL INCOMING FINANCE</th>
+                                    
+                                    <th>INSERT DATE</th>
+                                    <th>CREATED BY</th>
+                                    <th>TIPE ER/PR NUMBER</th>
+                                    <th>ER / BT</th>
+                                    <th>LAMPIRAN</th>
+                                    <th>TAC</th>
+                                    <th>LAST UPDATE DATE</th>
+                                    <th>MODIFIED BY</th>
+                                    <th width="50%">DESKRIPSI</th>
+                                    <th>BENEFICIARY</th>
+                                    <th>PAY GROUP</th>
+                                    <th>TRANSFER TO</th>
+                                    <th>ACCOUNT NUMBER</th>
+                                    <th>AMOUNT</th>
+                                    <th>PR DATE</th>
+                                    <th>PR APPROVED DATE</th>
+                                    <th>PO DATE</th>
+                                    <th>ER DATE</th>
+                                    <th>BRANCH NAME</th>
+                                    <th>ACCOUNTING DATE</th>
+                                    <th>PAYMENT DATE</th>
+                                    <th>SEARCH NO</th>
+                                    <th>SLA PR</th>
+                                    <th>SLA PO</th>
+                                    <th>SLA ER DATE</th>
+                                    <th>SLA KIRIM</th>
+                                    <th>SLA CABANG</th>
+                                    <th>ACCT</th>
+                                    <th>SLA FINANCE</th>
+                                    <th>SLA HQ</th>
+                                    
+                                </tr>
+                            </thead>
+
+                            <%
+                            CheckNULL = function(value) {
+                                if (value=='' || !value) {
+                                    return "-";
+                                }
+                                else {
+                                    return value;
+                                }
+                            }
+
+                            CheckNULLDate = function(value) {
+                                if (value=='' || !value) {
+                                    return "-";
+                                }
+                                else {
+                                    var tgl = value.substring(0, 10);
+                                    if(tgl=='1900-01-01' || tgl=='1900-01-01 ') {
+                                        return '-';
+                                    } else {
+                                        return tgl;
+                                    }
+                                }
+                            }
+                            %>
+
+                            <tbody>
+                                <% 
+                                if(data_report.PR_NUMBER!='') {
+                                var i=1; data_report.forEach(function(value) { %>
+                                <tr>
+                                    <td id="no" class="text-bold">
+                                        <%= i++ %>
+                                    </td>
+
+                                    <td id="prnumber" class="text-bold">
+                                        <%= CheckNULL(value.PR_NUMBER) %>
+                                    </td>
+                                    <td id="ernumber" class="text-bold">
+                                        <%= CheckNULL(value.ER_NUMBER) %>
+                                    </td>
+                                    <td id="invnumber" class="text-bold">
+                                        <%= CheckNULL(value.INVOICE_NUM) %>
+                                    </td>
+                                    <td id="validator1" class="text-bold">
+                                        <%= CheckNULL(value.nama_validator) %>
+                                    </td>
+                                    <td id="validator2" class="text-bold">
+                                        <%= CheckNULL(value.nama_validator2) %>
+                                    </td>
+                                    <td id="checker" class="text-bold">
+                                        <%= CheckNULL(value.nama_checker) %>
+                                    </td>
+                                    <td id="kode_cabang" class="text-bold">
+                                        <%= CheckNULL(value.KODECABANG) %>
+                                    </td>
+                                    <td id="cabang" class="text-bold">
+                                        <%= CheckNULL(value.DEPARTEMENT) %>
+                                    </td>
+
+                                    <td id="tipe_er" class="text-bold">
+                                        <%= CheckNULL(value.NAMA_TIPE_PR_ER_NUMBER) %>
+                                    </td>
+                                    <td id="periode" class="text-bold">
+
+                                        <%= CheckNULLDate(value.PERIODE) %>
+
+                                    </td>
+                                    <td id="tgl_incom" class="text-bold">
+                                        <%= CheckNULLDate(value.TANGGAL_INCOMING) %>
+                                    </td>
+                                    <td id="tgl_pros_check" class="text-bold">
+                                        <%= CheckNULLDate(value.TANGGAL_PROSES_CHECKER) %>
+                                    </td>
+                                    <td id="status" class="text-bold">
+                                        <%= CheckNULL(value.nama_status) %>
+                                    </td>
+
+                                    <td id="remarks" class="text-bold">
+                                        <%= CheckNULL(value.REMARKS) %>
+                                    </td>
+                                    <td id="tif" class="text-bold">
+                                        <%= CheckNULLDate(value.TANGGAL_INCOMING_FINANCE) %>
+                                    </td>
+                                    <td id="insert_date" class="text-bold">
+                                        <%= CheckNULLDate(value.INSERT_DATE) %>
+                                    </td>
+                                    <td id="nameapp" class="text-bold">
+                                        <%= CheckNULL(value.NAME_OF_APPROVERD) %>
+                                    </td>
+                                    <td id="tipeerpr" class="text-bold">
+                                        <%= CheckNULL(value.TYPE_PR_ER_NUMBER) %>
+                                    </td>
+                                    <td id="er_bt" class="text-bold">
+                                        <%= CheckNULL(value.NAMA_ER_BT) %>
+                                    </td>
+                                    <td id="lampiran" class="text-bold">
+                                        <%= CheckNULL(value.NAMA_LAMPIRAN) %>
+                                    </td>
+                                    <td id="tac" class="text-bold">
+                                        <%= CheckNULL(value.NAMA_TAC) %>
+                                    </td>
+                                    <td id="appdate" class="text-bold">
+                                        <%= CheckNULLDate(value.APPROVER_DATE) %>
+                                    </td>
+                                    <td id="modby" class="text-bold">
+                                        <%= CheckNULL(value.NAME_OF_UPDATED) %>
+                                    </td>
+                                    <td id="deskripsi" class="text-bold" width="50%">
+                                        <%= CheckNULL(value.deskripsi) %>
+                                    </td>
+                                    <td id="beneficiary" class="text-bold">
+                                        <%= CheckNULL(value.beneficiary) %>
+                                    </td>
+                                    <td id="pay_group" class="text-bold">
+                                        <%= CheckNULL(value.pay_group) %>
+                                    </td>
+                                    <td id="bank_name" class="text-bold">
+                                        <%= CheckNULL(value.bank_name) %>
+                                    </td>
+                                    <td id="account_number" class="text-bold">
+                                        <%= CheckNULL(value.account_number) %>
+                                    </td>
+                                    <td id="amount" class="text-bold">
+                                        <%= CheckNULL(value.amount) %>
+                                    </td>
+                                    <td id="prdate" class="text-bold">
+                                        <%= CheckNULLDate(value.PR_DATE) %>
+                                    </td>
+                                    <td id="prappdate" class="text-bold">
+                                        <%= CheckNULLDate(value.PR_APPROVED_DATE) %>
+                                    </td>
+                                    <td id="podate" class="text-bold">
+                                        <%= CheckNULLDate(value.PO_DATE) %>
+                                    </td>
+                                    <td id="erdate" class="text-bold">
+                                        <%= CheckNULLDate(value.ER_DATE) %>
+                                    </td>
+                                    <td id="branchname" class="text-bold">
+                                        <%= CheckNULL(value.BRANCH_NAME) %>
+                                    </td>
+                                    <td id="accdate" class="text-bold">
+                                        <%= CheckNULLDate(value.ACCOUNTING_DATE) %>
+                                    </td>
+                                    <td id="paydate" class="text-bold">
+                                        <%= CheckNULLDate(value.PAYMENT_DATE) %>
+                                    </td>
+                                    <td id="searchno" class="text-bold">
+                                        <%= CheckNULL(value.SEARCH_NO) %>
+                                    </td>
+                                    <td id="slapr" class="text-bold">
+                                        <%= CheckNULL(value.SLA_PR) %>
+                                    </td>
+                                    <td id="slapo" class="text-bold">
+                                        <%= CheckNULL(value.SLA_PO) %>
+                                    </td>
+                                    <td id="slaerdate" class="text-bold">
+                                        <%= CheckNULL(value.SLA_ER_DATE) %>
+                                    </td>
+                                    <td id="slakirim" class="text-bold">
+                                        <%= CheckNULL(value.SLA_KIRIM) %>
+                                    </td>
+                                    <td id="slacabang" class="text-bold">
+                                        <%= CheckNULL(value.SLA_CABANG) %>
+                                    </td>
+                                    <td id="acct" class="text-bold">
+                                        <%= CheckNULL(value.ACCT) %>
+                                    </td>
+                                    <td id="slafin" class="text-bold">
+                                        <%= CheckNULL(value.SLA_FIN) %>
+                                    </td>
+                                    <td id="slahq" class="text-bold">
+                                        <%= CheckNULL(value.SLA_HQ) %>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                                <% } else { %>
+                                <tr>
+                                    <td id="no" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+
+                                    <td id="prnumber" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="ernumber" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="invnumber" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="validator1" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="validator2" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="checker" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="kode_cabang" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="cabang" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+
+                                    <td id="tipe_er" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="periode" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="tgl_incom" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="tgl_pros_check" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="status" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+
+                                    <td id="remarks" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="tif" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="active" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="insert_date" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="tipeerpr" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="appdate" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="nameapp" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="deskripsi" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="beneficiary" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="pay_group" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="bank_name" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="account_number" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="amount" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="slapr" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="slapo" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="slaerdate" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="slakirim" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="slacabang" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="acct" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="slafin" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="slahq" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="acct" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="slafin" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="slafin" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="slafin" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="slafin" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="slafin" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="slafin" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="slafin" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="slafin" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="slafin" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                    <td id="slafin" class="text-bold">
+                                        Data tidak ditemukan
+                                    </td>
+                                </tr>
+                                <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-11">
+                <div class="space-24"></div>
+                <div class="space-24"></div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+</div><!-- /.page-content -->
+</div>
+</div><!-- /.main-content -->

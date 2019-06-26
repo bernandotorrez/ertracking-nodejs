@@ -1,0 +1,94 @@
+<div class="main-content">
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="/home">Home</a>
+                </li>
+                <li class="active">Admin</li>
+            </ul>
+            <!-- /.breadcrumb -->
+            <div class="nav-search" id="nav-search">
+                <form class="form-search">
+                    <span class="input-icon"></span>
+                </form>
+            </div>
+            <!-- /.nav-search -->
+        </div>
+        <div class="page-content">
+            <div class="page-header">
+                <h1>
+                    Admin
+
+                    <small>
+                        <i class="ace-icon fa fa-angle-double-right"></i>
+                        Master ER BT
+
+                    </small>
+                </h1>
+            </div>
+            <!-- /.page-header -->
+            <div class="space-24"></div>
+            <!-- ============================== FORM ============== -->
+            <form method="POST" action="/admin/edit_master_erbt" id="master-erbt-form">
+                <div class="col-md-11">
+                    <div class="row">
+                        <!-- ============================== KIRI ============== -->
+                        <div class="col-xs-6">
+                            <input type="hidden" name="id_erbt" id="" class="form-control" autofocus
+                                data-placement="bottom" data-original-title="Input Kode Cabang" minlength="3"
+                                maxlength="3" required value="<%= data.id %>">
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-5">
+                                        <label>ID TAC : </label>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <input type="text" name="" id="" class="form-control" autofocus
+                                            data-placement="bottom" data-original-title="Input ER BT" minlength="3"
+                                            maxlength="3" disabled value="<%= data.id %>">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-2"></div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-5">
+                                        <label>Nama TAC : </label>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <input type="text" style="text-transform: capitalize;" name="nama_erbt"
+                                            id="nama_erbt" class="form-control" autofocus data-placement="bottom"
+                                            data-original-title="Input Validator 2" minlength="3" maxlength="150"
+                                            required value="<%= data.nama %>">
+                                        <span class="help-block" id="error"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-12"></div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    &nbsp;
+                                </div>
+                                <div class="col-xs-3 text-center">
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                </div>
+                                
+                                <div class="col-xs-3 text-center">
+                                   <a href="#" onClick="window.history.back();" class="btn btn-warning">Cancel</a>
+                               </div>
+                            </div>
+                        </div>
+            </form>
+            <div class="col-md-11">
+                <div class="space-24"></div>
+                <div class="space-24"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.page-content -->
+</div>
+</div>
+<!-- /.main-content -->

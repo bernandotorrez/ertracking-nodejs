@@ -1,0 +1,325 @@
+<div id="navbar" class="navbar navbar-default          ace-save-state navbar-fixed-top">
+    <div class="navbar-container ace-save-state" id="navbar-container">
+        <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
+            <span class="sr-only">Toggle sidebar</span>
+
+            <span class="icon-bar"></span>
+
+            <span class="icon-bar"></span>
+
+            <span class="icon-bar"></span>
+        </button>
+
+        <div class="navbar-header pull-left">
+            <a href="/home" class="navbar-brand">
+                <small>
+                    <i class="fa fa-search"></i>
+                    ER - TRACKING
+                </small>
+            </a>
+        </div>
+
+        <div class="navbar-buttons navbar-header pull-right" role="navigation">
+            <ul class="nav ace-nav">
+
+
+                <li class="light-blue dropdown-modal">
+                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+
+                        <span class="user-info">
+                            <small>
+                                <%= level %>, </small>
+                            <%= nama %>
+                        </span>
+
+                        <i class="ace-icon fa fa-caret-down"></i>
+                    </a>
+
+                    <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+
+
+                        <li>
+                            <a href="/home/profil">
+                                <i class="ace-icon fa fa-user-circle-o"></i>
+                                Profile
+                            </a>
+                        </li>
+
+                        <li class="divider"></li>
+
+                        <li>
+                            <a href="/logout">
+                                <i class="ace-icon fa fa-power-off"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div><!-- /.navbar-container -->
+</div>
+<div class="main-container ace-save-state" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.loadState('main-container')
+        } catch (e) {}
+    </script>
+
+    <div id="sidebar" class="sidebar                  responsive                    ace-save-state sidebar-fixed"
+        data-sidebar="true" data-sidebar-scroll="true" data-sidebar-hover="true">
+        <script type="text/javascript">
+            try {
+                ace.settings.loadState('sidebar')
+            } catch (e) {}
+        </script>
+
+        <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+            <!-- <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+                <button class="btn btn-success">
+                    <i class="ace-icon fa fa-signal"></i>
+                </button>
+
+                <button class="btn btn-info">
+                    <i class="ace-icon fa fa-pencil"></i>
+                </button>
+
+                <button class="btn btn-warning">
+                    <i class="ace-icon fa fa-users"></i>
+                </button>
+
+                <button class="btn btn-danger">
+                    <i class="ace-icon fa fa-cogs"></i>
+                </button>
+            </div> -->
+
+            <img src="/images/logo.png" style="height: 60px; width: 150px;" />
+
+            <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+                <span class="btn btn-success"></span>
+
+                <span class="btn btn-info"></span>
+
+                <span class="btn btn-warning"></span>
+
+                <span class="btn btn-danger"></span>
+            </div>
+        </div><!-- /.sidebar-shortcuts -->
+        <ul class="nav nav-list">
+            <% if(url=='/') { %>
+            <li class="active">
+                <% } else { %>
+            <li class="">
+                <% } %>
+                <a href="/home">
+                    <i class="menu-icon fa fa-home"></i>
+                    <span class="menu-text"> Home </span>
+                </a>
+
+                <b class="arrow"></b>
+            </li>
+
+            <% if(url=='/profil') { %>
+            <li class="active">
+                <% } else { %>
+            <li class="">
+                <% } %>
+                <a href="/home/profil">
+                    <i class="menu-icon fa fa-user-circle-o"></i>
+                    <span class="menu-text"> Profil </span>
+                </a>
+
+                <b class="arrow"></b>
+            </li>
+
+            <% if(url=='/headquarter') { %>
+            <li class="active">
+                <% } else { %>
+            <li class="">
+                <% } %>
+                <a href="/home/headquarter">
+                    <i class="menu-icon fa fa-search"></i>
+                    <span class="menu-text"> ER - Tracking </span>
+                </a>
+
+                <b class="arrow"></b>
+            </li>
+
+            <% if(cost_control == 'true') { %>
+            <% if(url=='/report') { %>
+            <li class="active">
+                <% } else { %>
+            <li class="">
+                <% } %>
+                <a href="/home/report">
+                    <i class="menu-icon fa fa-file-excel-o"></i>
+                    <span class="menu-text"> Report </span>
+                </a>
+
+                <b class="arrow"></b>
+            </li>
+            <% } %>
+
+            <% if(cost_control_menu == '2') { %>
+            <% if(url=='/akses' || url=='/tipe_er' || url=='/master_checker' || url=='/master_validator'
+                    || url=='/checker' || url=='/departemen' || url=='/master_tac' || url=='/master_erbt' 
+                    || url=='/master_lampiran' || url=='/master_status') { %>
+            <li class="active open">
+                <% } else { %>
+            <li class="">
+                <% } %>
+                <a href="#" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-cog"></i>
+                    <span class="menu-text"> Master Data </span>
+
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+
+                <b class="arrow"></b>
+
+                <ul class="submenu">
+
+                    <% if(url=='/tipe_er') { %>
+                    <li class="active">
+                        <% } else { %>
+                    <li class="">
+                        <% } %>
+                        <a href="/admin/tipe_er">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Master Tipe ER
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
+                    <!-- Menu for Master Checker -->
+                    <% if(url=='/master_checker') { %>
+                    <li class="active">
+                        <% } else { %>
+                    <li class="">
+                        <% } %>
+                        <a href="/admin/master_checker">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Master Checker
+                        </a>
+                        <b class="arrow"></b>
+                    </li>
+                    <!-- Menu for Master Checker -->
+
+                    <!-- Menu for Master Validator -->
+                    <% if(url=='/master_validator') { %>
+                    <li class="active">
+                        <% } else { %>
+                    <li class="">
+                        <% } %>
+                        <a href="/admin/master_validator">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Master Validator
+                        </a>
+                        <b class="arrow"></b>
+                    </li>
+
+                    <!-- Menu for Master Validator -->
+
+
+                    <!-- Menu for Master Checker -->
+                    <% if(url=='/checker') { %>
+                    <li class="active">
+                        <% } else { %>
+                    <li class="">
+                        <% } %>
+                        <a href="/admin/checker">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            List Checker
+                        </a>
+                        <b class="arrow"></b>
+                    </li>
+                    <!-- Menu for Master Checker -->
+
+
+                    <!-- Menu for Master Departemen -->
+                    <!-- <% if(url=='/departemen') { %>
+                    <li class="active">
+                        <% } else { %>
+                    <li class="">
+                        <% } %>
+                        <a href="/admin/departemen">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Master Departemen
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li> -->
+                    <!-- Menu for Master Departemen -->
+
+                    <!-- Menu for Master TAC -->
+                    <% if(url=='/master_tac') { %>
+                        <li class="active">
+                            <% } else { %>
+                        <li class="">
+                            <% } %>
+                            <a href="/admin/master_tac">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Master TAC
+                            </a>
+    
+                            <b class="arrow"></b>
+                        </li>
+                    <!-- Menu for Master TAC -->
+
+                     <!-- Menu for Master ER BT -->
+                     <% if(url=='/master_erbt') { %>
+                        <li class="active">
+                            <% } else { %>
+                        <li class="">
+                            <% } %>
+                            <a href="/admin/master_erbt">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Master ER BT
+                            </a>
+    
+                            <b class="arrow"></b>
+                        </li>
+                    <!-- Menu for Master ER BT -->
+
+                    <!-- Menu for Master Lampiran -->
+                    <% if(url=='/master_lampiran') { %>
+                        <li class="active">
+                            <% } else { %>
+                        <li class="">
+                            <% } %>
+                            <a href="/admin/master_lampiran">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Master Lampiran
+                            </a>
+    
+                            <b class="arrow"></b>
+                        </li>
+                    <!-- Menu for Master Lampiran -->
+
+                    <!-- Menu for Master Status -->
+                    <% if(url=='/master_status') { %>
+                        <li class="active">
+                            <% } else { %>
+                        <li class="">
+                            <% } %>
+                            <a href="/admin/master_status">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Master Status
+                            </a>
+    
+                            <b class="arrow"></b>
+                        </li>
+                    <!-- Menu for Master Status -->
+                </ul>
+            </li>
+            <% } %>
+
+
+        </ul><!-- /.nav-list -->
+
+        <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+            <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left"
+                data-icon2="ace-icon fa fa-angle-double-right"></i>
+        </div>
+    </div>

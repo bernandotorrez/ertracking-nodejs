@@ -1,0 +1,159 @@
+<div class="main-content">
+	<div class="main-content-inner">
+		<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+			<ul class="breadcrumb">
+				<li>
+					<i class="ace-icon fa fa-home home-icon"></i>
+					<a href="/home">Home</a>
+				</li>
+				<li class="active">Admin</li>
+			</ul>
+			<!-- /.breadcrumb -->
+			<div class="nav-search" id="nav-search">
+				<form class="form-search">
+					<span class="input-icon"></span>
+				</form>
+			</div>
+			<!-- /.nav-search -->
+		</div>
+		<div class="page-content">
+			<div class="page-header">
+				<h1>
+					Admin
+
+					<small>
+						<i class="ace-icon fa fa-angle-double-right"></i>
+						Atur Hak Akses <%= data.full_cabang %>
+
+					</small>
+				</h1>
+			</div>
+			<!-- /.page-header -->
+			<div class="space-24"></div>
+			<!-- ============================== FORM ============== -->
+			<form method="POST" action="/admin/edit_akses" id="akses-form">
+				<div class="col-md-11">
+					<div class="row">
+						<!-- ============================== KIRI ============== -->
+						<div class="col-xs-6">
+							<input type="hidden" name="id_akses" value="<%= data.id %>" />
+							<div class="row">
+								<div class="form-group">
+									<div class="col-md-5">
+										<label>NIK : </label>
+									</div>
+									<div class="col-xs-4">
+										<input type="text" name="" id="" class="form-control" autofocus
+											data-placement="bottom" data-original-title="Input NIK" minlength="10"
+											maxlength="11" required value="<%= data.nik %>" readonly>
+									</div>
+								</div>
+							</div>
+
+							<div class="space-2"></div>
+							<div class="row">
+								<div class="form-group">
+									<div class="col-md-5">
+										<label>Nama : </label>
+									</div>
+									<div class="col-md-7">
+										<input type="text" name="nama_karyawan" id="nama_karyawan" class="form-control"
+											autofocus data-placement="bottom" data-original-title="Nama Karyawan"
+											minlength="3" maxlength="50" value="<%= data.nama %>" required readonly>
+										<span class="help-block" id="error"></span>
+									</div>
+								</div>
+							</div>
+
+							<div id="privilege">
+								<div class="space-2"></div>
+								<div class="row">
+									<div class="col-md-5">
+										<label>Privilege : </label>
+									</div>
+									<div class="col-md-7">
+										<select name="is_cost_control" id="is_cost_control" class="form-control"
+											required>
+											<option value='2' <% if(data.is_cost_control=='2' ) { %> <%= 'selected' %>
+												<% } %>> 2 - All (Cost Control with Master Data Adminstrator)
+											</option>
+											<option value='1' <% if(data.is_cost_control=='1' ) { %> <%= 'selected' %>
+												<% } %>> 1 - All except Administrator (Cost Control with no Master Data
+												Administrator
+											</option>
+											<option value='0' <% if(data.is_cost_control=='0' ) { %> <%= 'selected' %>
+												<% } %>> 0 - None of Above (View Only)
+											</option>
+										</select>
+										<span class="help-block" id="error"></span>
+									</div>
+								</div>
+							</div>
+
+							<div class="space-2"></div>
+							<div class="row">
+								<div class="form-group">
+									<div class="col-md-5">
+										<label>Cabang : </label>
+									</div>
+									<div class="col-md-7">
+										<select class="default" data-placeholder="Kode Cabang" name="kode_cabang"
+											id="kode_cabang">
+											<option value="">- Cabang -</option>
+											<% data.data_branch.forEach(function(value) { %>
+
+											<option
+												value="<%= value.OFFICE_CODE %>:<%= value.OFFICE_NAME %>:<%= value.OFFICE_ADDR %>"
+												<% if(value.OFFICE_CODE == data.office_code) { %> <%= 'selected' %>
+												<% } %>><%= value.OFFICE_CODE %> -
+												<%= value.OFFICE_NAME %>
+
+												<% }) %>
+										</select>
+										<span class="help-block" id="error"></span>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-xs-5">
+									<label>Active : </label>
+								</div>
+								<div class="col-xs-7">
+									<select name="active" id="active" class="form-control" required>
+
+										<option value='1' <% if(data.active=='1' ) { %> <%= 'selected' %> <% } %>> Ya
+										</option>
+										<option value='0' <% if(data.active=='0' ) { %> <%= 'selected' %> <% } %>> Tidak
+										</option>
+									</select>
+									<span class="help-block" id="error"></span>
+								</div>
+							</div>
+							<input type="hidden" name="ci_csrf_token" value="">
+							<div class="space-12"></div>
+							<div class="row">
+								<div class="col-xs-6">
+									&nbsp;
+								</div>
+								<div class="col-xs-3 text-center">
+									<button type="submit" class="btn btn-primary">Update</button>
+								</div>
+
+								<div class="col-xs-3 text-center">
+									<a href="#" onClick="window.history.back();" class="btn btn-warning">Cancel</a>
+								</div>
+							</div>
+						</div>
+			</form>
+			<div class="col-md-11">
+				<div class="space-24"></div>
+				<div class="space-24"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /.page-content -->
+</div>
+</div>
+<!-- /.main-content -->

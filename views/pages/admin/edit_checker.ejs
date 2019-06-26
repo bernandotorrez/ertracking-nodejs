@@ -1,0 +1,143 @@
+<div class="main-content">
+	<div class="main-content-inner">
+		<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+			<ul class="breadcrumb">
+				<li>
+					<i class="ace-icon fa fa-home home-icon"></i>
+					<a href="/home">Home</a>
+				</li>
+				<li class="active">Admin</li>
+			</ul>
+			<!-- /.breadcrumb -->
+			<div class="nav-search" id="nav-search">
+				<form class="form-search">
+					<span class="input-icon"></span>
+				</form>
+			</div>
+			<!-- /.nav-search -->
+		</div>
+		<div class="page-content">
+			<div class="page-header">
+				<h1>
+					Admin
+
+					<small>
+						<i class="ace-icon fa fa-angle-double-right"></i>
+						Master Checker
+
+					</small>
+				</h1>
+			</div>
+			<!-- /.page-header -->
+			<div class="space-24"></div>
+			<!-- ============================== FORM ============== -->
+
+			<% if(messages.info) { %>
+			<%- messages.info %>
+			<% } %>
+
+			<form method="POST" action="/admin/edit_checker" id="checker-form">
+				<input type="hidden" value="<%=id_master_checker %>" name="id_master_checker" id="id_master_checker" />
+				<div class="col-md-11">
+					<div class="row">
+						<!-- ============================== KIRI ============== -->
+						<div class="col-xs-6">
+							<div class="row">
+								<div class="form-group">
+									<div class="col-md-5">
+										<label>Kode Cabang : </label>
+									</div>
+									<div class="col-xs-4">
+										<input type="text" name="kode_cabang" id="kode_cabang" value="<%= data_list_checker[0].id_cabang %>"
+											class="form-control" readonly data-placement="bottom"
+											data-original-title="Input Kode Cabang" minlength="3" maxlength="3">
+									
+										<span class="help-block" id="error"></span>
+									</div>
+								</div>
+							</div>
+							<div class="space-2"></div>
+							<div class="row">
+								<div class="form-group">
+									<div class="col-md-5">
+										<label>Checker : </label>
+									</div>
+									<div class="col-xs-4">
+										<!-- <input type="text" name="checker" id="checker" class="form-control" autofocus data-placement="bottom" data-original-title="Input Nama Checker" minlength="3" maxlength="25" required> -->
+										<select class="form-control" data-placeholder="Checker" name="checker"
+											id="checker">
+											<option value="">- Checker -</option>
+											<% data_checker.forEach(function(value) { %>
+											<option value="<%= value.id_checker %>"
+												<% if(value.id_checker == data_list_checker[0].id_checker) { %>
+												<%= 'selected' %> <% } %>><%= value.nama_checker %></option>
+											<% }) %>
+										</select>
+										<span class="help-block" id="error"></span>
+									</div>
+								</div>
+							</div>
+							<div class="space-2"></div>
+							<div class="row">
+								<div class="form-group">
+									<div class="col-md-5">
+										<label>Validator 1 : </label>
+									</div>
+									<div class="col-xs-4">
+										<!--  <input type="text" name="validator1" id="validator1" class="form-control" autofocus data-placement="bottom" data-original-title="Input Validator 2" minlength="3" maxlength="25" required> -->
+										<select class="form-control" data-placeholder="Validator 1" name="validator1"
+											id="validator1">
+											<option value="">- Validator 1 -</option>
+											<% data_validator.forEach(function(value) { %>
+											<option value="<%= value.id_validator %>"
+												<% if(value.id_validator == data_list_checker[0].id_validator1) { %>
+												<%= 'selected' %> <% } %>><%= value.nama_validator %></option>
+											<% }) %>
+										</select>
+										<span class="help-block" id="error"></span>
+									</div>
+								</div>
+							</div>
+							<div class="space-2"></div>
+							<div class="row">
+								<div class="form-group">
+									<div class="col-md-5">
+										<label>Validator 2 : </label>
+									</div>
+									<div class="col-xs-4">
+										<!--  <input type="text" name="validator2" id="validator2" class="form-control" autofocus data-placement="bottom" data-original-title="Input Nama Validator 2" minlength="3" maxlength="25" required> -->
+										<select class="form-control" data-placeholder="Validator 2" name="validator2"
+											id="validator2">
+											<option value="">- Validator 2 -</option>
+											<% data_validator.forEach(function(value) { %>
+											<option value="<%= value.id_validator %>"
+												<% if(value.id_validator == data_list_checker[0].id_validator2) { %>
+												<%= 'selected' %> <% } %>><%= value.nama_validator %></option>
+											<% }) %>
+										</select>
+										<span class="help-block" id="error"></span>
+									</div>
+								</div>
+							</div>
+							<div class="space-12"></div>
+							<div class="row">
+								<div class="col-md-6">
+									&nbsp;
+								</div>
+								<div class="col-xs-3 text-center">
+									<button type="submit" class="btn btn-primary">Update</button>
+								</div>
+								
+								<div class="col-xs-3 text-center">
+								   <a href="#" onClick="window.history.back();" class="btn btn-warning">Cancel</a>
+							   </div>
+							</div>
+						</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- /.page-content -->
+</div>
+</div>
+<!-- /.main-content -->

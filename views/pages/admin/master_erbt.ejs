@@ -1,0 +1,152 @@
+<div class="main-content">
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="/home">Home</a>
+                </li>
+
+
+                <li class="active">Admin</li>
+            </ul><!-- /.breadcrumb -->
+
+            <div class="nav-search" id="nav-search">
+                <form class="form-search">
+                    <span class="input-icon">
+
+                    </span>
+                </form>
+            </div><!-- /.nav-search -->
+        </div>
+
+        <div class="page-content">
+
+
+            <div class="page-header">
+                <h1>
+                    Admin
+                    <small>
+                        <i class="ace-icon fa fa-angle-double-right"></i>
+                        Master ER BT
+                    </small>
+                </h1>
+            </div><!-- /.page-header -->
+            <div class="space-24"></div>
+
+            <% if(messages.info) { %>
+            <%- messages.info %>
+            <% } %>
+            <!-- ============================== FORM ============== -->
+            <form method="post" action="/admin/master_erbt" id="master-erbt-form">
+                <div class="col-md-11">
+                    <div class="row">
+
+                        <!-- ============================== KIRI ============== -->
+                        <div class="col-xs-6">
+
+
+                            <div class="space-2"></div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-5">
+                                        <label>ER BT : </label>
+                                    </div>
+                                    <div class="col-xs-4">
+
+                                        <input type="text" name="nama_erbt" id="nama_erbt" style="text-transform: capitalize;"
+                                            class="form-control" autofocus data-placement="bottom"
+                                            data-original-title="Input ER BT" minlength="3" maxlength="100" required>
+                                        <span class="help-block" id="error"></span>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="space-12"></div>
+                            <div class="row">
+
+                                <div class="col-md-5">
+                                    &nbsp;
+                                </div>
+                                <div class="col-xs-7 text-center">
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+            </form>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3 class="header smaller lighter blue text-right">
+
+                    </h3>
+
+
+                    <div class="clearfix">
+                        <div class="pull-right tableTools-container"></div>
+                    </div>
+                    <div class="table-header text-center">
+                        List Master ER BT
+                    </div>
+
+                    <!-- div.table-responsive -->
+
+                    <!-- div.dataTables_borderWrap -->
+                    <div class="dt-buttons btn-overlap btn-group btn-overlap">
+                    </div>
+                    <div class="table-responsive">
+                        <table id="master-erbt-table" class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>ER BT</th>
+                                    <th>Created Date</th>
+                                    <th>Created By</th>
+                                    <th>Updated Date</th>
+                                    <th>Updated By</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <% var i=1; data.forEach(function(value) { %>
+                                <tr>
+                                    <td><%- i++ %></td>
+                                    <td><%= value.TIPE_ER %> </td>
+                                    <td><%= value.created_date %></td>
+                                    <td><%= value.created_by %></td>
+                                    <td><%= value.updated_date %></td>
+                                    <td><%= value.updated_by %></td>
+                                    <td>
+
+                                        <% if(value.id_tipe == 'No Data') { %>
+                                        <%= 'No Data' %>
+                                        <% } else { %>
+                                        <a href="/admin/edit_master_erbt/<%= value.id_tipe %>"
+                                            onclick="return confirm('Edit data ini?');"><i
+                                                class="fa fa-pencil text-success"></i></a>&nbsp; | &nbsp;
+                                        <a href="/admin/delete_master_erbt/<%= value.id_tipe %>"
+                                            onclick="return confirm('Hapus data ini?');"><i
+                                                class="fa fa-trash text-danger"></i></a></td>
+
+                                    <% } %>
+
+                                </tr>
+                                <% }); %>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div><!-- /.page-content -->
+</div>
+</div><!-- /.main-content -->

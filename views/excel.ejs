@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <title>Excel</title>
+</head>
+
+<body>
+    <h1>Table</h1>
+
+    <table border="1">
+        <thead>
+            <th>No</th>
+            <th>NO Karyawan</th>
+            <th>Periode</th>
+            <th>Email</th>
+        </thead>
+
+        <tbody>
+            <% var i=1;data.ArrayData.forEach(function(value) { %>
+            <tr>
+                <td>
+                    <%- i++ %>
+                </td>
+                <td>
+                    <%= value.NO_KARYAWAN %>
+                </td>
+                <td>
+                    <%= value.PERIODE %>
+                </td>
+                <td>
+                    <%= value.EMAIL %>
+                </td>
+            </tr>
+            <% }) %>
+
+        </tbody>
+    </table>
+
+</body>
+
+<footer>
+    Copyright @Bernando Torrez
+</footer>
+
+</html>
